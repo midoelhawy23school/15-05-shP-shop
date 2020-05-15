@@ -17,6 +17,10 @@ public class imgPreview extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        try{
+            this.getSupportActionBar().hide();
+        }
+        catch (NullPointerException e){}
         setContentView(R.layout.activity_img_preview);
         pref = getApplicationContext().getSharedPreferences("MyPref", 0);
         imageView = findViewById(R.id.imageView);
