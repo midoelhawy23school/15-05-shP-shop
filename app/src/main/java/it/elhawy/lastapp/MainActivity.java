@@ -1,19 +1,25 @@
 package it.elhawy.lastapp;
 
+import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -24,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences.Editor editor;
     List <ImageView> ListImges = new ArrayList<ImageView>();
     List <Integer> Recources = new ArrayList<Integer>();
+    BottomNavigationView bottnavBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +41,11 @@ public class MainActivity extends AppCompatActivity {
 
         pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
         editor = pref.edit();
+
+
+
+
+
 
 
 
@@ -79,12 +91,37 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
+
+
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        int id = item.getItemId();
+
+        switch (id){
+            case R.id.MIuserProfile:
+                showToast("Manage profile activity is not implemented yet");
+                //alert("Manage profile activity is not implemented yet");
+                break;
+            case R.id.MIwishList:
+                showToast("Wish List activity is not implemented yet");
+               // alert("Wish List activity is not implemented yet");
+                break;
+        }
+
+
+
+        return true;
+    }
+
+
 
 
     public void opemImgPreview(){
@@ -97,5 +134,14 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+
+    public void alert(String msg){
+        Snackbar.make(getWindow().getDecorView().getRootView(), msg, Snackbar.LENGTH_LONG).setAction("ok", null).show();
+    }
+
+
+    public void showToast(String msg){
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+    }
 
 }
