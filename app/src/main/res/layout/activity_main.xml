@@ -26,8 +26,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_marginRight="5dp"
-        android:layout_marginBottom="5dp"
+        android:layout_margin="18dp"
+        android:padding="5dp"
         app:backgroundTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -301,6 +301,18 @@
 
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btnHareUs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_margin="18dp"
+        android:background="#00796B"
+        android:drawableEnd="@drawable/ic_wb_incandescent_black_24dp"
+        android:padding="5dp"
+        android:text="hire Us"
+        android:textColor="@color/white" />
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

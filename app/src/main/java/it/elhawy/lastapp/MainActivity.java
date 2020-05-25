@@ -18,6 +18,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     List <ImageView> ListImges = new ArrayList<ImageView>();
     List <Integer> Recources = new ArrayList<Integer>();
     BottomNavigationView bottnavBar;
+    Button btnHareUs;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
+        btnHareUs = findViewById(R.id.btnHareUs);
 
 
         ListImges.add((ImageView) findViewById(R.id.ImgITM1));
@@ -89,6 +91,15 @@ public class MainActivity extends AppCompatActivity {
                 //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
             }
         });
+
+
+        btnHareUs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openHireUs();
+            }
+        });
+
     }
 
 
@@ -108,6 +119,7 @@ public class MainActivity extends AppCompatActivity {
         switch (id){
             case R.id.MIuserProfile:
                 showToast("Manage profile activity is not implemented yet");
+
                 //alert("Manage profile activity is not implemented yet");
                 break;
             case R.id.MIwishList:
@@ -131,6 +143,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void openCart(){
         Intent intent = new Intent(this, cart.class);
+        startActivity(intent);
+    }
+
+    public void openHireUs(){
+        Intent intent = new Intent(this, profile.class);
         startActivity(intent);
     }
 
